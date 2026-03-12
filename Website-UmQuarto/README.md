@@ -1,8 +1,31 @@
-# React + Vite
+# Website — Um Quarto Escuro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site desenvolvido para o coletivo **Um Quarto Escuro**, voltado à divulgação de artistas, mixes e novidades do projeto.
 
-Currently, two official plugins are available:
+## ✨ Sobre o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto foi uma oportunidade de aplicar conceitos importantes de desenvolvimento front-end, como componentização em React, criação de interfaces responsivas e integração com um backend para envio de emails na newsletter.
+
+## 🚀 Tecnologias utilizadas
+
+- React
+- JavaScript
+- CSS
+- Node.js
+- Express
+
+## 📬 Funcionalidades
+
+- Navegação entre seções do site
+- Área de artistas e mixes
+- Newsletter com envio de email
+- Layout responsivo
+
+## 🔒 Segurança
+
+A integração de envio de emails foi implementada através de um backend em Node.js para manter chaves de API protegidas e evitar exposição de dados sensíveis no front-end.
+
+## 📍 Contato
+
+Santos — SP  
+contato@umquartoescuro.com.br
