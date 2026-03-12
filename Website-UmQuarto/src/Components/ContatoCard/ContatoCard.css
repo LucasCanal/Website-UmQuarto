@@ -1,0 +1,173 @@
+.footer {
+  width: 100%;
+  background: #0c0303;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 3rem 4rem;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  opacity: 0.3;
+  margin-bottom: 3rem;
+}
+
+/* LAYOUT PRINCIPAL */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+/* COLUNA ESQUERDA */
+.footer-left {
+  max-width: 250px;
+}
+
+.footer-logo {
+  width: 79px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+/* COLUNA CENTRAL - NEWSLETTER */
+.footer-center {
+  text-align: left;
+}
+
+.footer-center h4 {
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.newsletter input {
+  width: 260px;
+  padding: 0.6rem;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.newsletter button {
+  width: 120px;
+  padding: 0.5rem;
+  border: 1px solid #ff2f2f;
+  color: #ff2f2f;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+/* COLUNA DIREITA - LINKS */
+.footer-right {
+  display: flex;
+  gap: 7rem;
+}
+
+.footer-right .col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-right a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: opacity 0.2s;
+}
+
+.footer-right a:hover {
+  opacity: 0.6;
+}
+
+/* RODAPÉ FINAL */
+.footer-bottom {
+  margin-top: 3rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.footer-bottom p {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .footer {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* mantém esquerda normal */
+  .footer-left {
+    max-width: none;
+  }
+
+  /* newsletter ok */
+  .footer-center {
+    max-width: 100%;
+  }
+
+  /* 🔥 FOOTER RIGHT EM LINHA ÚNICA */
+  .footer-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  /* remove colunas */
+  .footer-right .col {
+    flex-direction: row;
+    gap: 0.6rem;
+  }
+
+  /* links */
+  .footer-right a {
+    font-size: 0.75rem;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  /* traço entre os links */
+  .footer-right a::after {
+    content: "—";
+    margin-left: 0.6rem;
+    opacity: 0.5;
+  }
+
+  /* remove traço do último */
+  .footer-right a:last-child::after {
+    content: "";
+  }
+
+  /* rodapé final */
+  .footer-bottom {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: 0.65rem;
+    letter-spacing: 0.8px;
+    opacity: 0.7;
+  }
+}

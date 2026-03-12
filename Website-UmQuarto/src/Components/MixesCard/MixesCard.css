@@ -1,0 +1,169 @@
+.mixes-section {
+  width: 100%;
+  padding: 4rem 0;
+  background: black;
+  color: white;
+}
+
+.mixes-header {
+  text-align: left;
+  margin-bottom: 3rem;
+  padding-left: 0; /* garante alinhamento com grid */
+}
+
+
+.mixes-header .label {
+  font-size: 3.2rem;
+  font-weight: 200;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+  color: #fff;
+}
+
+.mixes-header .title {
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+  font-weight: 300;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.mix-caption {
+  margin-top: 1rem;
+}
+
+.mixes-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.mixes-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.mix-card {
+  width: calc(100% / 3);
+  flex-shrink: 0;
+  text-align: center;
+  padding: 0 1rem;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.mix-image {
+  transition: transform 0.3s ease;
+}
+
+.mix-card:hover .mix-image {
+  transform: scale(1.02);
+}
+
+
+.mix-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.mixes-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  background: #666;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.3);
+}
+
+/* Faixa de vídeo */
+.video-strip-container {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background: black;
+  margin-top: 6rem;
+}
+
+.video-strip {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  object-fit: cover;
+  filter: brightness(1.4) contrast(1.5) saturate(1.6);
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width: 768px) {
+
+  .mixes-section {
+    padding: 3rem 0;
+  }
+
+  .mixes-header {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .mixes-header .label {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .mixes-header .title {
+    font-size: 1.1rem;
+  }
+
+  /* 1 card por vez (override REAL) */
+  .mix-card {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .mix-image {
+    height: 240px;
+    width: 450px;
+  }
+
+  .mix-caption {
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .mixes-dots {
+    margin-top: 2rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+  }
+
+  .dot.active {
+    transform: scale(1.2);
+  }
+
+  /* Faixa de vídeo mais fina */
+  .video-strip-container {
+    height: 40px;
+    margin-top: 4rem;
+  }
+}

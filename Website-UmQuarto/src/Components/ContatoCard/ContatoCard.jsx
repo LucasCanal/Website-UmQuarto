@@ -1,0 +1,92 @@
+import React, { useState } from "react";
+import "./ContatoCard.css";
+import logo from "../../assets/logo.jpg";
+
+export default function ContatoCard() {
+  const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setMsg("Email inválido");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:3001/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setMsg("Email cadastrado!");
+        setEmail("");
+      } else {
+        setMsg("Erro ao cadastrar");
+      }
+    } catch {
+      setMsg("Erro de conexão com o servidor");
+    }
+  }
+
+  return (
+    <footer id="Contato" className="footer">
+      <div className="footer-divider"></div>
+
+      <div className="footer-content">
+
+        <div className="footer-left">
+          <img src={logo} alt="logo" className="footer-logo" />
+          <p>Santos-SP<br />contato@umquartoescuro.com.br</p>
+        </div>
+
+        <div className="footer-center">
+          <h4>NOSSAS NOVIDADES</h4>
+
+          <form className="newsletter" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              placeholder="COLOQUE SEU EMAIL"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit">ENVIAR</button>
+          </form>
+
+          {msg && <p style={{ marginTop: 8, fontSize: 12 }}>{msg}</p>}
+        </div>
+
+        <div className="footer-right">
+          <div className="col">
+            <a href="#Sobre">SOBRE</a>
+            <a href="#Artistas">ARTISTAS</a>
+            <a href="#Mixes">MIXES</a>
+            <a href="#Contato">CONTATO</a>
+          </div>
+
+          <div className="col">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/umquarto.escuro/">
+              INSTAGRAM
+            </a>
+            <a target="_blank" rel="noopener noreferrer" href="#">
+              SOUNDCLOUD
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© UM QUARTO ESCURO — 2026 | CULTURA | DIVERSIDADE | COLETIVO DE MÚSICA ELETRÔNICA</p>
+      </div>
+    </footer>
+  );
+}

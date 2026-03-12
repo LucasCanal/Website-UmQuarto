@@ -1,0 +1,107 @@
+.artists-section {
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-bottom: 10rem;
+}
+
+.artists-header .label {
+  font-size: 3.2rem;
+  font-weight: 200;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+  color: #fff;
+}
+
+.artists-header .title {
+  font-size: 1.5rem;
+  letter-spacing: -1px;
+  font-weight: 300;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.artist-image {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  transition: filter 0.3s ease;
+}
+
+.artist-card:hover .artist-image {
+  filter: brightness(1.1);
+}
+
+.artist-title {
+  font-size: 1.4rem;
+  color: #ccc;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width: 768px) {
+
+  .artists-section {
+    padding: 0 1rem;
+    margin-bottom: 6rem;
+  }
+
+  .artists-header .label {
+    font-size: 2rem;
+    letter-spacing: -1px;
+    margin-bottom: 0.3rem;
+  }
+
+  .artists-header .title {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
+
+  .artists-grid {
+    gap: 60px;
+  }
+
+  .artist-card:hover {
+    transform: none;
+    /* remove zoom no mobile */
+    opacity: 1;
+  }
+
+  .artist-image {
+    margin-bottom: 10px;
+  }
+
+  .artist-card {
+    align-items: center;
+  }
+
+  .artist-title {
+    width: 65%;
+    text-align: left;
+    margin-top: 8px;
+  }
+
+  .artist-image {
+    max-width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

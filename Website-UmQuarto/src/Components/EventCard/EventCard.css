@@ -1,0 +1,17 @@
+.event-section h1 {
+  font-size: 3.2rem;
+  font-weight: 200;
+  margin-bottom: 2rem;
+  letter-spacing: -2px;
+  color: #fff;              
+}
+
+.divisor {
+  width: 100vw;
+  height: 30px;
+  background: linear-gradient(to right, transparent, #ff000074, transparent);
+  margin: 0;
+  border: none;
+  opacity: 0.9;
+  margin-bottom: 30px;
+}
