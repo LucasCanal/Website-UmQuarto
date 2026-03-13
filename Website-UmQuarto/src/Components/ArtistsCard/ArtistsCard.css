@@ -5,7 +5,7 @@
 }
 
 .artists-header .label {
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 200;
   margin-bottom: 0.5rem;
   letter-spacing: -2px;
@@ -51,7 +51,7 @@
 
 .artist-title {
   font-size: 1.4rem;
-  color: #ccc;
+  color: #fff;
   letter-spacing: 0.5px;
   margin-top: 5px;
 }
