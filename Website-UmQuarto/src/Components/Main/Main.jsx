@@ -14,10 +14,11 @@ const Main = () => {
     const endTime = 6
 
     const handleLoaded = () => {
-      video.currentTime = startTime
-      video.play().catch(() => { })
+      video.muted = true;  // garante que Safari vê como mutado
+      video.currentTime = startTime;
+      video.play().catch(() => { });
     }
-
+    
     const handleTimeUpdate = () => {
       if (video.currentTime >= endTime) {
         video.currentTime = startTime
