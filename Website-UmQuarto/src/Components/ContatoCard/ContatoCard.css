@@ -57,6 +57,7 @@
   background: transparent;
   border: 1px solid #fff;
   color: #fff;
+  outline: none;
 }
 
 .newsletter button {
