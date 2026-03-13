@@ -10,7 +10,6 @@ const Main = () => {
 
     if (!video) return
 
-    // começa no segundo 2
     const startTime = 1.5
     const endTime = 6
 
