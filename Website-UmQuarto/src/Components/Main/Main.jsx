@@ -16,7 +16,7 @@ const Main = () => {
 
     const handleLoaded = () => {
       video.currentTime = startTime
-      video.play()
+      video.play().catch(() => { })
     }
 
     const handleTimeUpdate = () => {
@@ -43,7 +43,9 @@ const Main = () => {
           src={videoBg}
           autoPlay
           muted
+          loop
           playsInline
+          disablePictureInPicture
           className="background-video"
         />
       </div>
