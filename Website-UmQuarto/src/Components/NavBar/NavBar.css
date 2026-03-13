@@ -13,14 +13,14 @@ nav {
 .nav-logo-container h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 2rem;
-  letter-spacing: -3.2px;
+  letter-spacing: -3.6px;
   font-weight: 700;
   color: #fff;
 }
 
 /* Botão menu */
 .menu-toggle {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   background: none;
   border: none;
   color: #fff;
@@ -51,7 +51,7 @@ nav {
   position: relative;
   text-decoration: none;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   font-weight: 200;
   padding: 0.3rem 0.7rem;
 }
