@@ -13,8 +13,8 @@ import cdj4 from './assets/cdj4.jpeg'
 const mixes = [
   {
     img: cdj3,
-    artist: "Alma WAV",
-    title: "Mix / Set — Alma WAV",
+    artist: "Alma",
+    title: "Mix / Set — Alma",
     mixUrl: "https://soundcloud.com/almawav"
   },
   {
@@ -25,15 +25,15 @@ const mixes = [
   },
   {
     img: cdj2,
-    artist: "Jayy",
-    title: "Mix / Set — Jayy",
-    mixUrl: "https://soundcloud.com/jaysqz"
+    artist: "Jay",
+    title: "Mix / Set — House In Da House",
+    mixUrl: "https://www.youtube.com/watch?v=0NOnzksBMpE&t=2s"
   },
   {
     img: cdj4,
     artist: "Houses",
-    title: "Mix / Set — Houses",
-    mixUrl: "https://soundcloud.com/housessdj"
+    title: "Mix / Set — House In Da House",
+    mixUrl: "https://www.youtube.com/watch?v=PyU2ahxYNxw"
   },
 ];
 

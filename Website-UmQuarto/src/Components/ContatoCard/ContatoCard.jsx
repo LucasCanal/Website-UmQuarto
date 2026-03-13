@@ -46,7 +46,7 @@ export default function ContatoCard() {
 
         <div className="footer-left">
           <img src={logo} alt="logo" className="footer-logo" />
-          <p>Santos-SP<br />contato@umquartoescuro.com.br</p>
+          <p>Santos-SP<br />umquartoescuroofficial@gmail.com</p>
         </div>
 
         <div className="footer-center">
@@ -77,7 +77,7 @@ export default function ContatoCard() {
             <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/umquarto.escuro/">
               INSTAGRAM
             </a>
-            <a target="_blank" rel="noopener noreferrer" href="#">
+            <a target="_blank" rel="noopener noreferrer" href="https://soundcloud.com/um-quarto-escuro">
               SOUNDCLOUD
             </a>
           </div>
