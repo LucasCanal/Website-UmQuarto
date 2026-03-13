@@ -45,7 +45,8 @@ const Main = () => {
           muted
           loop
           playsInline
-          disablePictureInPicture
+          controls={false}
+          preload="auto"
           className="background-video"
         />
       </div>
