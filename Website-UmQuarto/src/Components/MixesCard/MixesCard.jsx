@@ -12,6 +12,7 @@ export default function MixesCard({ mixes = [] }) {
   const [dragOffset, setDragOffset] = useState(0);
 
   const startX = useRef(0);
+  const wasDragging = useRef(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,21 +25,19 @@ export default function MixesCard({ mixes = [] }) {
   }, []);
 
   /* CONFIG */
-  const slidesToShow = isMobile ? 2 : Math.min(3, mixes.length || 3);
+  const slidesToShow = isMobile
+    ? Math.min(2, mixes.length)
+    : Math.min(3, mixes.length);
 
-  // número de “páginas”
-  const totalDots = Math.ceil(mixes.length / slidesToShow);
+  const totalDots = isMobile
+    ? Math.ceil(mixes.length / slidesToShow) // mobile (página)
+    : Math.max(mixes.length - slidesToShow + 1, 1); // desktop (1 por vez)
 
   useEffect(() => {
-    if (current > totalDots - 1) {
-      setCurrent(0);
-    }
+    if (current > totalDots - 1) setCurrent(0);
   }, [current, totalDots]);
 
-  const slideWidthPercent = 100 / slidesToShow;
-
-  /* ===== SWIPE ===== */
-
+  /* SWIPE */
   const handleStart = (clientX) => {
     setIsDragging(true);
     startX.current = clientX;
@@ -46,23 +45,32 @@ export default function MixesCard({ mixes = [] }) {
 
   const handleMove = (clientX) => {
     if (!isDragging) return;
-    const delta = clientX - startX.current;
-    setDragOffset(delta);
+    setDragOffset(clientX - startX.current);
   };
 
   const handleEnd = () => {
     setIsDragging(false);
+    const threshold = 50;
 
-    const threshold = 50; // sensibilidade
+    if (Math.abs(dragOffset) > threshold) {
+      wasDragging.current = true;
 
-    if (dragOffset < -threshold && current < totalDots - 1) {
-      setCurrent((prev) => prev + 1);
-    } else if (dragOffset > threshold && current > 0) {
-      setCurrent((prev) => prev - 1);
+      if (dragOffset < -threshold && current < totalDots - 1) {
+        setCurrent((prev) => prev + 1);
+      } else if (dragOffset > threshold && current > 0) {
+        setCurrent((prev) => prev - 1);
+      }
+    } else {
+      wasDragging.current = false;
     }
 
     setDragOffset(0);
   };
+
+  /* MOVE */
+  const movePercent = isMobile
+    ? current * 100
+    : current * (100 / slidesToShow);
 
   return (
     <>
@@ -85,7 +93,7 @@ export default function MixesCard({ mixes = [] }) {
           <div
             className="mixes-track"
             style={{
-              transform: `translateX(calc(-${current * slideWidthPercent}% + ${dragOffset}px))`,
+              transform: `translateX(calc(-${movePercent}% + ${dragOffset}px))`,
               transition: isDragging ? "none" : "transform 0.4s ease",
             }}
           >
@@ -96,6 +104,10 @@ export default function MixesCard({ mixes = [] }) {
                 rel="noopener noreferrer"
                 className="mix-card"
                 key={mix.id ?? index}
+                style={{ width: `${100 / slidesToShow}%` }}
+                onClick={(e) => {
+                  if (wasDragging.current) e.preventDefault();
+                }}
               >
                 <img
                   src={mix.img}

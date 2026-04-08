@@ -38,7 +38,6 @@
   overflow: hidden;
   position: relative;
 
-  /* ✅ UX swipe */
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
@@ -51,13 +50,11 @@
 
 .mixes-track {
   display: flex;
-
-  /* ❌ removido transition fixa (controlada no JS agora) */
   will-change: transform;
 }
 
+/* ✅ IMPORTANTE: base do card SEM width fixa */
 .mix-card {
-  width: calc(100% / 3);
   flex-shrink: 0;
   text-align: center;
   padding: 0 1rem;
@@ -87,8 +84,8 @@
 }
 
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 100%;
   background: #666;
   margin: 0 5px;
@@ -141,7 +138,6 @@
   }
 
   .mix-card {
-    width: calc(100% / 3);
     padding: 0 1rem;
   }
 

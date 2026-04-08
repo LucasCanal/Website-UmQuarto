@@ -5,6 +5,9 @@ import logo from "../../assets/logo.jpg";
 export default function ContatoCard() {
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -16,8 +19,10 @@ export default function ContatoCard() {
       return;
     }
 
+    setLoading(true);
+
     try {
-      const res = await fetch("http://localhost:3001/subscribe", {
+      const res = await fetch(`${API_URL}/subscribe`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -35,6 +40,8 @@ export default function ContatoCard() {
       }
     } catch {
       setMsg("Erro de conexão com o servidor");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -59,10 +66,12 @@ export default function ContatoCard() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit">ENVIAR</button>
+            <button type="submit" disabled={loading}>
+              {loading ? "ENVIANDO..." : "ENVIAR"}
+            </button>
           </form>
 
-          {msg && <p style={{ marginTop: 8, fontSize: 12 }}>{msg}</p>}
+          {msg && <p className="msg">{msg}</p>}
         </div>
 
         <div className="footer-right">

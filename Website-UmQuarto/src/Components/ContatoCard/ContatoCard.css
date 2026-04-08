@@ -33,7 +33,7 @@
   margin-bottom: 1rem;
 }
 
-/* COLUNA CENTRAL - NEWSLETTER */
+/* COLUNA CENTRAL */
 .footer-center {
   text-align: left;
 }
@@ -51,7 +51,8 @@
 }
 
 .newsletter input {
-  width: 260px;
+  width: 100%;
+  max-width: 280px;
   padding: 0.6rem;
   background: transparent;
   border: 1px solid #fff;
@@ -60,8 +61,9 @@
 }
 
 .newsletter button {
-  width: 120px;
-  padding: 0.5rem;
+  width: 100%;
+  max-width: 140px;
+  padding: 0.6rem;
   border: 1px solid #ff2f2f;
   color: #ff2f2f;
   background: transparent;
@@ -69,10 +71,22 @@
   letter-spacing: 1px;
 }
 
-/* COLUNA DIREITA - LINKS */
+.newsletter button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* MENSAGEM */
+.msg {
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* COLUNA DIREITA */
 .footer-right {
   display: flex;
-  gap: 7rem;
+  gap: 4rem;
 }
 
 .footer-right .col {
@@ -86,13 +100,22 @@
   text-decoration: none;
   font-size: 0.9rem;
   transition: opacity 0.2s;
+  padding: 4px 0;
 }
 
-.footer-right a:hover {
-  opacity: 0.6;
+/* HOVER SÓ DESKTOP */
+@media (hover: hover) and (pointer: fine) {
+  .footer-right a:hover {
+    opacity: 0.6;
+  }
+
+  .newsletter button:hover {
+    background: #ff2f2f;
+    color: #000;
+  }
 }
 
-/* RODAPÉ FINAL */
+/* RODAPÉ */
 .footer-bottom {
   margin-top: 3rem;
   text-align: center;
@@ -116,17 +139,14 @@
     gap: 2rem;
   }
 
-  /* mantém esquerda normal */
   .footer-left {
     max-width: none;
   }
 
-  /* newsletter ok */
   .footer-center {
     max-width: 100%;
   }
 
-  /* 🔥 FOOTER RIGHT EM LINHA ÚNICA */
   .footer-right {
     display: flex;
     flex-wrap: wrap;
@@ -134,40 +154,51 @@
     margin-top: 1rem;
   }
 
-  /* remove colunas */
   .footer-right .col {
     flex-direction: row;
     gap: 0.6rem;
   }
 
-  /* links */
   .footer-right a {
     font-size: 0.75rem;
     white-space: nowrap;
     position: relative;
   }
 
-  /* traço entre os links */
   .footer-right a::after {
     content: "—";
     margin-left: 0.6rem;
     opacity: 0.5;
   }
 
-  /* remove traço do último */
   .footer-right a:last-child::after {
     content: "";
   }
 
-  /* rodapé final */
   .footer-bottom {
     margin-top: 2.5rem;
-    text-align: center;
   }
 
   .footer-bottom p {
     font-size: 0.65rem;
     letter-spacing: 0.8px;
     opacity: 0.7;
+  }
+}
+
+/* ===== DESKTOP MELHORADO ===== */
+@media (min-width: 769px) {
+  .newsletter {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .newsletter input {
+    flex: 1;
+  }
+
+  .newsletter button {
+    width: auto;
+    padding: 0.6rem 1rem;
   }
 }
