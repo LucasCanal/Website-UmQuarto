@@ -33,9 +33,10 @@
 
 .sobre-text.signature {
   margin-top: 2.5rem;
-  font-size: 1rem;
-  color: #ccc;
+  font-size: 0.8rem;
+  color: #fff;
   text-align: right;
+  letter-spacing: 1px;
 }
 
 .video-strip-container {
@@ -70,7 +71,7 @@
   }
 
   .sobre-text.signature {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .video-strip-container {
