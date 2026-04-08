@@ -1,111 +1,102 @@
 .artists-section {
   color: #fff;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin-bottom: 10rem;
+  padding: 0 2rem;
+  margin-bottom: 6rem;
 }
 
 .artists-header .label {
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-weight: 200;
-  margin-bottom: 0.5rem;
-  letter-spacing: -2px;
+  margin-bottom: 0.3rem;
+  letter-spacing: -1px;
   color: #fff;
 }
 
 .artists-header .title {
-  font-size: 1.5rem;
+  font-size: 1rem;
   letter-spacing: -1px;
   font-weight: 300;
   color: #ccc;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .artists-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  gap: 32px;
 }
 
 .artist-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .artist-card:hover {
-  transform: scale(1.03);
-  opacity: 0.9;
+  transform: none;
+  opacity: 1;
 }
 
 .artist-image {
   width: 100%;
+  max-width: 65%;
   border-radius: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   transition: filter 0.3s ease;
 }
 
-.artist-card:hover .artist-image {
-  filter: brightness(1.1);
-}
-
 .artist-title {
-  font-size: 1.4rem;
+  font-size: 0.9rem;
   color: #fff;
   letter-spacing: 0.5px;
-  margin-top: 5px;
+  margin-top: 8px;
+  width: 65%;
+  text-align: left;
 }
 
-/* ===== MOBILE ONLY ===== */
-@media (max-width: 768px) {
-
+/* ===== DESKTOP ===== */
+@media (min-width: 769px) {
   .artists-section {
-    padding: 0 1rem;
-    margin-bottom: 6rem;
+    margin-bottom: 10rem;
   }
 
   .artists-header .label {
-    font-size: 1.8rem;
-    letter-spacing: -1px;
-    margin-bottom: 0.3rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
   }
 
   .artists-header .title {
-    font-size: 1rem;
-    margin-bottom: 24px;
-  }
-
-  .artist-title {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
   }
 
   .artists-grid {
-    gap: 60px;
-  }
-
-  .artist-card:hover {
-    transform: none;
-    /* remove zoom no mobile */
-    opacity: 1;
-  }
-
-  .artist-image {
-    margin-bottom: 10px;
+    gap: 40px;
   }
 
   .artist-card {
-    align-items: center;
+    align-items: flex-start;
   }
 
-  .artist-title {
-    width: 65%;
-    text-align: left;
-    margin-top: 8px;
+  .artist-card:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
   }
 
   .artist-image {
-    max-width: 65%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .artist-image:hover {
+    filter: brightness(1.1);
+  }
+
+  .artist-title {
+    font-size: 1.4rem;
+    width: auto;
   }
 }

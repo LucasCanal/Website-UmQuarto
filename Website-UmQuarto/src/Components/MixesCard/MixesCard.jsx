@@ -1,12 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./MixesCard.css";
 import videoBg from "../../assets/video-bg.mp4";
 
 export default function MixesCard({ mixes = [] }) {
   const [current, setCurrent] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
 
-  // Detecta resize (importante ao girar a tela)
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragOffset, setDragOffset] = useState(0);
+
+  const startX = useRef(0);
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -17,15 +23,12 @@ export default function MixesCard({ mixes = [] }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  /* ===== CONFIGURAÇÕES ===== */
-  const slidesToShow = isMobile ? 1 : Math.min(3, mixes.length || 3);
+  /* CONFIG */
+  const slidesToShow = isMobile ? 2 : Math.min(3, mixes.length || 3);
 
-  // ✅ FIX: dots corretos
-  const totalDots = isMobile
-    ? 4
-    : Math.max(0, mixes.length - slidesToShow + 1);
+  // número de “páginas”
+  const totalDots = Math.ceil(mixes.length / slidesToShow);
 
-  // Evita índice inválido
   useEffect(() => {
     if (current > totalDots - 1) {
       setCurrent(0);
@@ -33,6 +36,33 @@ export default function MixesCard({ mixes = [] }) {
   }, [current, totalDots]);
 
   const slideWidthPercent = 100 / slidesToShow;
+
+  /* ===== SWIPE ===== */
+
+  const handleStart = (clientX) => {
+    setIsDragging(true);
+    startX.current = clientX;
+  };
+
+  const handleMove = (clientX) => {
+    if (!isDragging) return;
+    const delta = clientX - startX.current;
+    setDragOffset(delta);
+  };
+
+  const handleEnd = () => {
+    setIsDragging(false);
+
+    const threshold = 50; // sensibilidade
+
+    if (dragOffset < -threshold && current < totalDots - 1) {
+      setCurrent((prev) => prev + 1);
+    } else if (dragOffset > threshold && current > 0) {
+      setCurrent((prev) => prev - 1);
+    }
+
+    setDragOffset(0);
+  };
 
   return (
     <>
@@ -42,11 +72,21 @@ export default function MixesCard({ mixes = [] }) {
           <p className="title">UM QUARTO RECORDS</p>
         </div>
 
-        <div className="mixes-carousel">
+        <div
+          className="mixes-carousel"
+          onMouseDown={(e) => handleStart(e.clientX)}
+          onMouseMove={(e) => handleMove(e.clientX)}
+          onMouseUp={handleEnd}
+          onMouseLeave={handleEnd}
+          onTouchStart={(e) => handleStart(e.touches[0].clientX)}
+          onTouchMove={(e) => handleMove(e.touches[0].clientX)}
+          onTouchEnd={handleEnd}
+        >
           <div
             className="mixes-track"
             style={{
-              transform: `translateX(-${current * slideWidthPercent}%)`,
+              transform: `translateX(calc(-${current * slideWidthPercent}% + ${dragOffset}px))`,
+              transition: isDragging ? "none" : "transform 0.4s ease",
             }}
           >
             {mixes.map((mix, index) => (
@@ -66,7 +106,6 @@ export default function MixesCard({ mixes = [] }) {
                   {mix.artist} — {mix.title}
                 </p>
               </a>
-
             ))}
           </div>
 
@@ -83,7 +122,6 @@ export default function MixesCard({ mixes = [] }) {
         </div>
       </section>
 
-      {/* Faixa animada */}
       <div className="video-strip-container">
         <video className="video-strip" autoPlay loop muted playsInline>
           <source src={videoBg} type="video/mp4" />

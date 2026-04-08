@@ -1,89 +1,80 @@
 .sobre-section {
-    color: #fff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    text-align: left;
-    margin-bottom: 10rem;
-}
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 6rem;
+  padding: 0 2rem;
+  }
 
 .sobre-header .label {
-    font-size: 3rem;
-    font-weight: 200;
-    margin-bottom: 2.5rem;
-    letter-spacing: -2px;
-    color: #fff;
+  font-size: 1.8rem;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+  color: #fff;
 }
 
 .sobre-text {
-    font-size: 1.4rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: #ccc;
-    margin-bottom: 1.6rem;
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 1.6rem;
 }
 
 .sobre-text strong {
-    color: #fff;
-    font-weight: 500;
+  color: #fff;
+  font-weight: 500;
 }
 
 .sobre-text.signature {
-    margin-top: 2.5rem;
-    font-size: 1rem;
-    color: #ccc;
-    text-align: right;
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  color: #ccc;
+  text-align: right;
 }
 
 .video-strip-container {
-    width: 100%;
-    height: 50px; /* espessura da faixa */
-    overflow: hidden;
-    position: relative;
-    background: black;
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  background: black;
+  margin-top: 4rem;
+}
+
+.video-strip {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 180%;
+  object-fit: cover;
+  filter: brightness(1.4) contrast(1.5) saturate(1.6);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 769px) {
+  .sobre-section {
+    margin-bottom: 10rem;
+  }
+
+  .sobre-header .label {
+    font-size: 3rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: -2px;
+  }
+
+  .sobre-text.signature {
+    font-size: 1rem;
+  }
+
+  .video-strip-container {
+    height: 50px;
     margin-top: 6rem;
   }
-  
-  .video-strip {
-    position: absolute;
-    top: -100%; /* recorta só uma parte do vídeo */
-    left: 0;
-    width: 100%;
-    height: 180%; /* garante movimento interno */
-    object-fit: cover;
-    filter: brightness(1.4) contrast(1.5) saturate(1.6);
-  }
-  
-  /* ===== MOBILE ONLY ===== */
-@media (max-width: 768px) {
-
-    .sobre-section {
-      padding: 0 1rem;
-      margin-bottom: 6rem;
-    }
-  
-    .sobre-header .label {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: -1px;
-    }
-  
-    .sobre-text {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-  
-    .sobre-text.signature {
-      font-size: 0.9rem;
-      margin-top: 2rem;
-    }
-  
-    .video-strip-container {
-      height: 40px;
-      margin-top: 4rem;
-    }
-  }
-  
+}

@@ -1,46 +1,59 @@
 .mixes-section {
   width: 100%;
-  padding: 4rem 0;
+  padding: 4rem 2rem;
   background: black;
   color: white;
 }
 
 .mixes-header {
   text-align: left;
-  margin-bottom: 3rem;
-  padding-left: 0; /* garante alinhamento com grid */
+  margin-bottom: 2rem;
 }
 
-
 .mixes-header .label {
-  font-size: 3rem;
+  font-size: 1.8rem;
   font-weight: 200;
-  margin-bottom: 0.5rem;
-  letter-spacing: -2px;
+  margin-bottom: 0.3rem;
+  letter-spacing: -1px;
   color: #fff;
 }
 
 .mixes-header .title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   letter-spacing: -1px;
   font-weight: 300;
   color: #ccc;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .mix-caption {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
 }
+
+/* ===== CAROUSEL ===== */
 
 .mixes-carousel {
   width: 100%;
   overflow: hidden;
   position: relative;
+
+  /* ✅ UX swipe */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.mixes-carousel:active {
+  cursor: grabbing;
 }
 
 .mixes-track {
   display: flex;
-  transition: transform 0.5s ease;
+
+  /* ❌ removido transition fixa (controlada no JS agora) */
+  will-change: transform;
 }
 
 .mix-card {
@@ -54,6 +67,10 @@
 }
 
 .mix-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 5px;
   transition: transform 0.3s ease;
 }
 
@@ -61,43 +78,38 @@
   transform: scale(1.02);
 }
 
-
-.mix-image {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 5px;
-}
+/* ===== DOTS ===== */
 
 .mixes-dots {
   display: flex;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 }
 
 .dot {
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 100%;
   background: #666;
-  margin: 0 6px;
+  margin: 0 5px;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .dot.active {
   background: white;
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
-/* Faixa de vídeo */
+/* ===== VIDEO ===== */
+
 .video-strip-container {
   width: 100%;
-  height: 50px;
+  height: 40px;
   overflow: hidden;
   position: relative;
   background: black;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .video-strip {
@@ -110,60 +122,45 @@
   filter: brightness(1.4) contrast(1.5) saturate(1.6);
 }
 
-/* ===== MOBILE ONLY ===== */
-@media (max-width: 768px) {
+/* ===== DESKTOP ===== */
 
-  .mixes-section {
-    padding: 3rem 0;
-  }
-
+@media (min-width: 769px) {
   .mixes-header {
-    margin-bottom: 2rem;
-    padding: 0 1rem;
+    margin-bottom: 3rem;
   }
 
   .mixes-header .label {
-    font-size: 1.8rem;
-    margin-bottom: 0.3rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
   }
 
   .mixes-header .title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
   }
 
-  /* 1 card por vez (override REAL) */
   .mix-card {
-    width: 100%;
+    width: calc(100% / 3);
     padding: 0 1rem;
   }
 
   .mix-image {
-    height: 240px;
-    width: 450px;
-  }
-
-  .mix-caption {
-    margin-top: 0.8rem;
-    font-size: 0.95rem;
-  }
-
-  .mixes-dots {
-    margin-top: 2rem;
+    height: 350px;
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
-    margin: 0 5px;
+    width: 9px;
+    height: 9px;
+    margin: 0 6px;
   }
 
   .dot.active {
-    transform: scale(1.2);
+    transform: scale(1.3);
   }
 
-  /* Faixa de vídeo mais fina */
   .video-strip-container {
-    height: 40px;
-    margin-top: 4rem;
+    height: 50px;
+    margin-top: 6rem;
   }
 }

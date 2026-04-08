@@ -1,16 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './NavBar.css'
 
 const NavBar = () => {
   const [open, setOpen] = useState(false)
+  const navRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   return (
-    <nav>
+    <nav ref={navRef}>
       <div className='nav-logo-container'>
         <h1>Um Quarto Escuro</h1>
       </div>
 
-      {/* Botão menu mobile */}
       <button
         className="menu-toggle"
         onClick={() => setOpen(!open)}

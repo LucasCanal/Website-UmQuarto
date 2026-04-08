@@ -1,12 +1,23 @@
 /* ===== BASE MOBILE ===== */
 
+/* BASE MOBILE */
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
-  margin-top: 1rem;
-  position: relative;
+  padding: 1.5rem 3.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  nav {
+    padding: 2rem 10rem;
+  }
 }
 
 /* Logo mobile */
@@ -27,23 +38,31 @@ nav {
   cursor: pointer;
 }
 
-/* Menu mobile fechado */
+/* Menu mobile — base com transição */
 .navbar-links-container {
-  display: none;
-}
-
-/* Menu mobile aberto */
-.navbar-links-container.open {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 70px;
+  top: 100%;
   right: 1rem;
   background-color: #000;
   padding: 0.9rem;
   gap: 1.2rem;
   border-radius: 8px;
   z-index: 100;
+
+  /* Animação de entrada */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Menu mobile aberto */
+.navbar-links-container.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
 }
 
 /* Links mobile */
@@ -68,6 +87,15 @@ nav {
   transition: 0.3s ease;
 }
 
+/* ===== TABLET (768px – 1023px) ===== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-logo-container h1 {
+    font-size: 2.5rem;
+    letter-spacing: -3.9px;
+  }
+}
+
 /* ===== DESKTOP ===== */
 
 @media (min-width: 1024px) {
@@ -81,6 +109,12 @@ nav {
     flex-direction: row;
     background: none;
     padding: 0;
+
+    /* Resetar animação mobile */
+    opacity: 1;
+    pointer-events: all;
+    transform: none;
+    transition: none;
   }
 
   .navbar-links-container a {

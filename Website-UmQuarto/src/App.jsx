@@ -39,14 +39,16 @@ const mixes = [
 
 function App() {
   return (
-    <div className='App'>
+    <>
       <NavBar/>
-      <Main/>
-      <SobreCard/>
-      <ArtistsCard/>
-      <MixesCard mixes={mixes} />
-      <ContatoCard/>
-    </div>
+      <div className='App'>
+        <Main/>
+        <SobreCard/>
+        <ArtistsCard/>
+        <MixesCard mixes={mixes} />
+        <ContatoCard/>
+      </div>
+    </>
   )
 }
 
