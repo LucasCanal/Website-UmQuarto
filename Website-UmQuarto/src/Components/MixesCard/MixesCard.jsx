@@ -13,6 +13,7 @@ export default function MixesCard({ mixes = [] }) {
 
   const startX = useRef(0);
   const wasDragging = useRef(false);
+  const stripRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,14 +25,21 @@ export default function MixesCard({ mixes = [] }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const v = stripRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.play().catch(() => {});
+  }, []);
+
   /* CONFIG */
   const slidesToShow = isMobile
     ? Math.min(2, mixes.length)
     : Math.min(3, mixes.length);
 
   const totalDots = isMobile
-    ? Math.ceil(mixes.length / slidesToShow) // mobile (página)
-    : Math.max(mixes.length - slidesToShow + 1, 1); // desktop (1 por vez)
+    ? Math.ceil(mixes.length / slidesToShow)
+    : Math.max(mixes.length - slidesToShow + 1, 1);
 
   useEffect(() => {
     if (current > totalDots - 1) setCurrent(0);
@@ -109,11 +117,7 @@ export default function MixesCard({ mixes = [] }) {
                   if (wasDragging.current) e.preventDefault();
                 }}
               >
-                <img
-                  src={mix.img}
-                  alt={mix.title}
-                  className="mix-image"
-                />
+                <img src={mix.img} alt={mix.title} className="mix-image" />
                 <p className="mix-caption">
                   {mix.artist} — {mix.title}
                 </p>
@@ -121,7 +125,6 @@ export default function MixesCard({ mixes = [] }) {
             ))}
           </div>
 
-          {/* DOTS */}
           <div className="mixes-dots">
             {Array.from({ length: totalDots }).map((_, i) => (
               <span
@@ -135,7 +138,14 @@ export default function MixesCard({ mixes = [] }) {
       </section>
 
       <div className="video-strip-container">
-        <video className="video-strip" autoPlay loop muted playsInline>
+        <video
+          ref={stripRef}
+          className="video-strip"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
           <source src={videoBg} type="video/mp4" />
         </video>
       </div>

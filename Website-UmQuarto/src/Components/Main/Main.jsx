@@ -7,18 +7,17 @@ const Main = () => {
 
   useEffect(() => {
     const video = videoRef.current
-
     if (!video) return
 
     const startTime = 1.5
     const endTime = 6
 
     const handleLoaded = () => {
-      video.muted = true;  // garante que Safari vê como mutado
-      video.currentTime = startTime;
-      video.play().catch(() => { });
+      video.muted = true
+      video.currentTime = startTime
+      video.play().catch(() => {})
     }
-    
+
     const handleTimeUpdate = () => {
       if (video.currentTime >= endTime) {
         video.currentTime = startTime
@@ -46,7 +45,7 @@ const Main = () => {
           loop
           playsInline
           controls={false}
-          preload="auto"
+          preload="metadata"
           className="background-video"
         />
       </div>

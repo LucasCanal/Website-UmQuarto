@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import './SobreCard.css'
 import videoBg from "../../assets/video-bg.mp4";
 
 const SobreCard = () => {
+  const stripRef = useRef(null)
+
+  useEffect(() => {
+    const v = stripRef.current
+    if (!v) return
+    v.muted = true
+    v.play().catch(() => {})
+  }, [])
+
   return (
     <section id="Sobre" className="sobre-section">
       <div className="sobre-header">
@@ -21,9 +30,15 @@ const SobreCard = () => {
         </p>
       </div>
 
-      {/* Aqui é a faixa animada */}
       <div className="video-strip-container">
-        <video className="video-strip" autoPlay loop muted playsInline>
+        <video
+          ref={stripRef}
+          className="video-strip"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
           <source src={videoBg} type="video/mp4" />
         </video>
       </div>
