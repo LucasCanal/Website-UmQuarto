@@ -8,7 +8,7 @@
   text-align: left;
   margin-bottom: 6rem;
   padding: 0 2rem;
-  }
+}
 
 .sobre-header .label {
   font-size: 1.8rem;
@@ -31,9 +31,9 @@
   font-weight: 500;
 }
 
-.sobre-text.signature {
+.sobre-header .sobre-text.signature {
   margin-top: 2.5rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   color: #fff;
   text-align: right;
   letter-spacing: 1px;
@@ -70,7 +70,7 @@
     letter-spacing: -2px;
   }
 
-  .sobre-text.signature {
+  .sobre-header .sobre-text.signature {
     font-size: 0.9rem;
   }
 
