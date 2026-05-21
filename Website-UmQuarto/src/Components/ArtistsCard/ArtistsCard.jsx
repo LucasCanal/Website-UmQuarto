@@ -6,22 +6,29 @@ import JAY from '../../assets/jay.jpg'
 import CANALL from '../../assets/canall.jpg'
 
 const artists = [
-  {
+  { 
     img: ALMA,
     title: 'Alma',
+    presskit: 'https://drive.google.com/file/d/1h-0wpACsGLJpHdQw_ounPuzA6vUXosxZ/view?usp=sharing'
   },
-  {
+
+  { 
     img: BERNARDO,
     title: 'Houses',
+    presskit: 'https://drive.google.com/file/d/1Cl0c3H9K4cqh59ZiQemHHIV_SzX7iPjK/view?usp=drive_link'
   },
-  {
+
+  { 
     img: JAY,
     title: 'Jay',
+    presskit: 'https://drive.google.com/file/d/1LYjDrJuiSJeNSTpCRYe-UjMm5aRe0a2L/view?usp=drive_link'
   },
-  {
+
+  { 
     img: CANALL,
-    title: 'Canall'
-  }
+    title: 'Canall',
+    presskit: 'https://drive.google.com/file/d/1DReY9gOd34ieL33NJrpYLSLUbWmjFrDA/view?usp=sharing'
+  },
 ]
 
 const ArtistsCard = () => {
@@ -35,7 +42,9 @@ const ArtistsCard = () => {
       <div className="artists-grid">
         {artists.map((artist, index) => (
           <div key={index} className="artist-card">
-            <img src={artist.img} alt={artist.title} className="artist-image" />
+            <a href={artist.presskit} target="_blank" rel="noopener noreferrer" className="artist-link">
+              <img src={artist.img} alt={artist.title} className="artist-image" />
+            </a>
             <p className="artist-title">{artist.title}</p>
           </div>
         ))}

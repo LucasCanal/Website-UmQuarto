@@ -42,7 +42,6 @@ const Main = () => {
           src={videoBg}
           autoPlay
           muted
-          loop
           playsInline
           controls={false}
           preload="metadata"

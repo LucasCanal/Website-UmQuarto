@@ -34,9 +34,13 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.artist-card:hover {
-  transform: none;
-  opacity: 1;
+.artist-link {
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .artist-image {
@@ -84,6 +88,11 @@
   .artist-card:hover {
     transform: scale(1.03);
     opacity: 0.9;
+  }
+
+  .artist-link {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .artist-image {

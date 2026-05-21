@@ -37,7 +37,6 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
@@ -53,7 +52,6 @@
   will-change: transform;
 }
 
-/* ✅ IMPORTANTE: base do card SEM width fixa */
 .mix-card {
   flex-shrink: 0;
   text-align: center;
@@ -120,14 +118,14 @@
   filter: brightness(1.4) contrast(1.5) saturate(1.6);
 }
 
-/* ===== MOBILE AJUSTADO (🔥 AQUI) ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .mixes-section {
-    padding: 4rem 1.5rem; /* ↓ diminui lateral → imagem cresce */
+    padding: 4rem 1.5rem;
   }
 
   .mix-card {
-    padding: 0 0.6rem; /* ↓ menos espaço entre cards */
+    padding: 0 0.6rem;
   }
 }
 

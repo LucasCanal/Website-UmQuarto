@@ -32,7 +32,9 @@ export default function MixesCard({ mixes = [] }) {
     v.play().catch(() => {});
   }, []);
 
-  /* CONFIG */
+
+  if (!mixes.length) return null;
+
   const slidesToShow = isMobile
     ? Math.min(2, mixes.length)
     : Math.min(3, mixes.length);
@@ -41,12 +43,9 @@ export default function MixesCard({ mixes = [] }) {
     ? Math.ceil(mixes.length / slidesToShow)
     : Math.max(mixes.length - slidesToShow + 1, 1);
 
-  useEffect(() => {
-    if (current > totalDots - 1) setCurrent(0);
-  }, [current, totalDots]);
-
   /* SWIPE */
   const handleStart = (clientX) => {
+    wasDragging.current = false; // CORRIGIDO: reseta no início de cada toque
     setIsDragging(true);
     startX.current = clientX;
   };
@@ -84,7 +83,7 @@ export default function MixesCard({ mixes = [] }) {
     <>
       <section id="Mixes" className="mixes-section">
         <div className="mixes-header">
-          <h1 className="label">MIXES</h1>
+          <h2 className="label">MIXES</h2>
           <p className="title">UM QUARTO RECORDS</p>
         </div>
 
