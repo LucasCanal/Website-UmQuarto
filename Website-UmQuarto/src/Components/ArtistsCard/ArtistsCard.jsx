@@ -15,13 +15,13 @@ const artists = [
   { 
     img: BERNARDO,
     title: 'Houses',
-    presskit: 'https://drive.google.com/file/d/1Cl0c3H9K4cqh59ZiQemHHIV_SzX7iPjK/view?usp=drive_link'
+    presskit: 'https://drive.google.com/file/d/1LYjDrJuiSJeNSTpCRYe-UjMm5aRe0a2L/view?usp=drive_link'
   },
 
   { 
     img: JAY,
     title: 'Jay',
-    presskit: 'https://drive.google.com/file/d/1LYjDrJuiSJeNSTpCRYe-UjMm5aRe0a2L/view?usp=drive_link'
+    presskit: 'https://drive.google.com/file/d/1Cl0c3H9K4cqh59ZiQemHHIV_SzX7iPjK/view?usp=drive_link'
   },
 
   { 
