@@ -1,17 +1,153 @@
-.event-section h1 {
-  font-size: 3.2rem;
-  font-weight: 200;
-  margin-bottom: 2rem;
-  letter-spacing: -2px;
-  color: #fff;              
+.event-section {
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding: 0 2rem;
+  margin-bottom: 6rem;
 }
 
-.divisor {
-  width: 100vw;
-  height: 30px;
-  background: linear-gradient(to right, transparent, #ff000074, transparent);
+/* mesmo padrão de cabeçalho do ArtistsCard */
+.event-header .label {
+  font-size: 1.8rem;
+  font-weight: 200;
+  margin-bottom: 0.3rem;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.event-header .title {
+  font-size: 1rem;
+  letter-spacing: -1px;
+  font-weight: 300;
+  color: #ccc;
+  margin-bottom: 24px;
+}
+
+/* mobile: flyer e infos empilhados */
+.event-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.event-flyer-link {
+  display: block;
+  width: 100%;
+}
+
+.event-flyer {
+  width: 100%;
+  max-width: 260px; /* controla o tamanho do flyer no mobile - ajuste esse valor à vontade */
+  margin: 0 auto;
+  border-radius: 4px;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.event-name {
+  font-size: 1.4rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: #fff;
   margin: 0;
-  border: none;
-  opacity: 0.9;
-  margin-bottom: 30px;
+}
+
+.event-details {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.event-description {
+  font-size: 0.9rem;
+  color: #ddd;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* botão de CTA no tom laranja/queimado usado no resto do site */
+.event-cta {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 10px 22px;
+  border: 1px solid #ff5c33;
+  color: #ff5c33;
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  font-weight: 400;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.event-cta:hover {
+  background: #ff5c33;
+  color: #000;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 769px) {
+  .event-section {
+    margin-bottom: 10rem;
+  }
+
+  .event-header .label {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -2px;
+  }
+
+  .event-header .title {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .event-content {
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start;
+  }
+
+  .event-flyer-link {
+    flex: 0 0 25%; /* controla a largura do flyer no desktop - ajuste esse % à vontade */
+    max-width: 25%;
+  }
+
+  .event-flyer {
+    max-width: 100%; /* no desktop, o flyer preenche a coluna definida acima, não a tela toda */
+  }
+
+  .event-flyer:hover {
+    filter: brightness(1.1);
+  }
+
+  .event-info {
+    flex: 1;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .event-name {
+    font-size: 2.2rem;
+  }
+
+  .event-details {
+    font-size: 1.1rem;
+  }
+
+  .event-description {
+    font-size: 1.1rem;
+  }
+
+  .event-cta {
+    font-size: 0.95rem;
+    padding: 12px 28px;
+  }
 }

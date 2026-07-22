@@ -64,8 +64,8 @@
   width: 100%;
   max-width: 140px;
   padding: 0.6rem;
-  border: 1px solid #ff2f2f;
-  color: #ff2f2f;
+  border: 1px solid #ff5c33;
+  color: #ff5c33;
   background: transparent;
   cursor: pointer;
   letter-spacing: 1px;
@@ -110,7 +110,7 @@
   }
 
   .newsletter button:hover {
-    background: #ff2f2f;
+    background: #ff5c33;
     color: #000;
   }
 }

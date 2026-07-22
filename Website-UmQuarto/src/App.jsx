@@ -9,6 +9,7 @@ import cdj from './assets/cdj.jpeg'
 import cdj2 from './assets/cdj2.jpeg'
 import cdj3 from './assets/cdj3.jpeg'
 import cdj4 from './assets/cdj4.jpeg'
+import EventCard from './Components/EventCard/EventCard'
 
 const mixes = [
   {
@@ -44,6 +45,7 @@ function App() {
       <div className='App'>
         <Main/>
         <SobreCard/>
+        <EventCard/>
         <ArtistsCard/>
         <MixesCard mixes={mixes} />
         <ContatoCard/>
