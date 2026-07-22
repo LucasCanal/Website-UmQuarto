@@ -31,6 +31,7 @@ const NavBar = () => {
 
       <div className={`navbar-links-container ${open ? 'open' : ''}`}>
         <a href="#Sobre" onClick={() => setOpen(false)}>SOBRE</a>
+        <a href="#Eventos" onClick={() => setOpen(false)}>EVENTOS</a>
         <a href="#Artistas" onClick={() => setOpen(false)}>ARTISTAS</a>
         <a href="#Mixes" onClick={() => setOpen(false)}>MIXES</a>
         <a href="#Contato" onClick={() => setOpen(false)}>CONTATO</a>

@@ -46,6 +46,10 @@
 .artist-image {
   width: 100%;
   max-width: 65%;
+  aspect-ratio: 3 / 4;
+  /* controla a proporção — ajuste como preferir (1/1, 4/5, etc.) */
+  object-fit: cover;
+  /* corta a imagem mantendo o enquadramento, sem distorcer */
   border-radius: 4px;
   margin-bottom: 10px;
   transition: filter 0.3s ease;
@@ -97,15 +101,18 @@
 
   .artist-image {
     max-width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
     margin-bottom: 12px;
   }
+}
 
-  .artist-image:hover {
-    filter: brightness(1.1);
-  }
+.artist-image:hover {
+  filter: brightness(1.1);
+}
 
-  .artist-title {
-    font-size: 1.4rem;
-    width: auto;
-  }
+.artist-title {
+  font-size: 1.4rem;
+  width: auto;
+}
 }

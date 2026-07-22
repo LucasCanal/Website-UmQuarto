@@ -69,6 +69,7 @@
   background: transparent;
   cursor: pointer;
   letter-spacing: 1px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .newsletter button:disabled {

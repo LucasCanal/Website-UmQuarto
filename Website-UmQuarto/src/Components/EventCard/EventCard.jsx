@@ -2,12 +2,13 @@ import React from 'react'
 import './EventCard.css'
 import FLYER from '../../assets/flyer-2anos.jpeg'
 
-// link de contato: abre o Instagram do coletivo direto na conversa de DM
+// link de contato
+const instagram = 'https://www.instagram.com/p/DbDuoJuIpEU/'
 const instagramDM = 'https://ig.me/m/umquarto.escuro'
 
 const EventCard = () => {
   return (
-    <section id="Evento" className="event-section">
+    <section id="Eventos" className="event-section">
       <div className="event-header">
         <h1 className="label">EVENTOS</h1>
         <p className="title">PRÓXIMA EDIÇÃO</p>
@@ -15,7 +16,7 @@ const EventCard = () => {
 
       <div className="event-content">
         <a
-          href={instagramDM}
+          href={instagram}
           target="_blank"
           rel="noopener noreferrer"
           className="event-flyer-link"
@@ -26,6 +27,7 @@ const EventCard = () => {
         {/* informações do evento */}
         <div className="event-info">
           <h2 className="event-name">2 Anos de Um Quarto Escuro</h2>
+
 
           <p className="event-details">
             📍 Sala Especial — R. Frei Gaspar, 56, Centro, Santos - SP <br />

@@ -22,7 +22,7 @@ export default function ContatoCard() {
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_URL}/subscribe`, {
+      const res = await fetch(`${API_URL}/subscribe.php`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

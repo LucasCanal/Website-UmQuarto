@@ -1,0 +1,4 @@
+<?php
+return [
+    "BREVO_API_KEY" => "SUA_CHAVE_AQUI"
+];
