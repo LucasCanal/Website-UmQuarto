@@ -16,7 +16,7 @@ const NavBar = () => {
   }, [])
 
   return (
-    <nav ref={navRef}>
+    <nav ref={navRef} className="navbar">
       <div className='nav-logo-container'>
         <h1>Um Quarto Escuro</h1>
       </div>

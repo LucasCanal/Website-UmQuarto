@@ -1,8 +1,7 @@
 /* ===== BASE MOBILE ===== */
-
-/* BASE MOBILE */
-nav {
+nav.navbar {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 3.5rem;
@@ -10,12 +9,13 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  background: transparent;
   z-index: 10;
 }
 
 /* DESKTOP */
 @media (min-width: 1024px) {
-  nav {
+  nav.navbar {
     padding: 2rem 10rem;
   }
 }
@@ -88,7 +88,6 @@ nav {
 }
 
 /* ===== TABLET (768px – 1023px) ===== */
-
 @media (min-width: 768px) and (max-width: 1023px) {
   .nav-logo-container h1 {
     font-size: 2.5rem;
@@ -97,7 +96,6 @@ nav {
 }
 
 /* ===== DESKTOP ===== */
-
 @media (min-width: 1024px) {
   .menu-toggle {
     display: none;

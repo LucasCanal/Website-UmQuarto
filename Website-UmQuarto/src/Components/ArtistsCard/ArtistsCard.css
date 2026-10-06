@@ -55,6 +55,10 @@
   transition: filter 0.3s ease;
 }
 
+.artist-image:hover {
+  filter: brightness(1.1);
+}
+
 .artist-title {
   font-size: 0.9rem;
   color: #fff;
@@ -105,14 +109,9 @@
     object-fit: cover;
     margin-bottom: 12px;
   }
-}
 
-.artist-image:hover {
-  filter: brightness(1.1);
-}
-
-.artist-title {
-  font-size: 1.4rem;
-  width: auto;
-}
+  .artist-title {
+    font-size: 1.4rem;
+    width: auto;
+  }
 }
