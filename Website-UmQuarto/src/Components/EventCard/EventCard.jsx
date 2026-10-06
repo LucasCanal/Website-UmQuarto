@@ -3,7 +3,7 @@ import './EventCard.css'
 import FLYER from '../../assets/Halloween-2026.png'
 
 // link de contato
-const instagram = 'https://www.instagram.com/umquarto.escuro/'
+const instagram = 'https://www.instagram.com/p/DeK3Jy7xzkv/'
 const instagramDM = 'https://ig.me/m/umquarto.escuro'
 
 const EventCard = () => {

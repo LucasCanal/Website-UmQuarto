@@ -14,27 +14,27 @@ import EventCard from './Components/EventCard/EventCard'
 const mixes = [
   {
     img: cdj3,
-    artist: "Alma",
-    title: "Mix / Set — Alma",
-    mixUrl: "https://soundcloud.com/almawav"
+    artist: "ShowCunty",
+    title: "JOPELOVA B2B JULIANA ALMA",
+    mixUrl: "https://youtu.be/FcJOjNs4rYQ?si=ip8bpZ5O0S-HCoEk"
   },
   {
     img: cdj,
     artist: "Canall",
-    title: "Mix / Set — VNC House Santos",
+    title: "VNC House Santos",
     mixUrl: "https://soundcloud.com/c_nall/canall-vnc-house-santos"
   },
   {
     img: cdj2,
     artist: "Jay",
-    title: "Mix / Set — House In Da House",
-    mixUrl: "https://www.youtube.com/watch?v=0NOnzksBMpE&t=2s"
+    title: "PANDANCE360°",
+    mixUrl: "https://youtu.be/-bMBz_twRPE?si=PyaDPkvRPgpFrrVS"
   },
   {
     img: cdj4,
     artist: "Houses",
-    title: "Mix / Set — House In Da House",
-    mixUrl: "https://www.youtube.com/watch?v=PyU2ahxYNxw"
+    title: "House In Da House",
+    mixUrl: "https://youtu.be/PyU2ahxYNxw?si=vFtKNeRTCTiwlca2"
   },
 ];
 

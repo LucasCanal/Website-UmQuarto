@@ -9,25 +9,25 @@ const artists = [
   { 
     img: ALMA,
     title: 'Alma',
-    presskit: 'https://drive.google.com/file/d/1h-0wpACsGLJpHdQw_ounPuzA6vUXosxZ/view?usp=sharing'
+    presskit: 'https://drive.google.com/file/d/1PzGFFdIH_fZdIIuyh1cT1h70q9Qoy9GH/view?usp=sharing'
   },
 
   { 
     img: BERNARDO,
     title: 'Houses',
-    presskit: 'https://drive.google.com/file/d/1LYjDrJuiSJeNSTpCRYe-UjMm5aRe0a2L/view?usp=drive_link'
+    presskit: 'https://drive.google.com/file/d/1LH_inLe-nZtZMPTaptyjzw5dOtzUVCUf/view?usp=sharing'
   },
 
   { 
     img: JAY,
     title: 'Jay',
-    presskit: 'https://drive.google.com/file/d/1Cl0c3H9K4cqh59ZiQemHHIV_SzX7iPjK/view?usp=drive_link'
+    presskit: 'https://drive.google.com/file/d/1H63wdYNj746ClTw_HYNU2iDBdlFFKXJ6/view?usp=sharing'
   },
 
   { 
     img: CANALL,
     title: 'Canall',
-    presskit: 'https://drive.google.com/file/d/1DReY9gOd34ieL33NJrpYLSLUbWmjFrDA/view?usp=sharing'
+    presskit: 'https://drive.google.com/file/d/1bbCF3CTIUhRH7usLT1XzwPIkeobupKLq/view?usp=sharing'
   },
 ]
 
