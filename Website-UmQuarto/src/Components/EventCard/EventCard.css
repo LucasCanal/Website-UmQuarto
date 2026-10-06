@@ -36,10 +36,11 @@
 
 .event-flyer {
   width: 100%;
-  max-width: 260px; /* controla o tamanho do flyer no mobile - ajuste esse valor à vontade */
+  max-width: 260px; /* tamanho no mobile - ajuste à vontade */
   margin: 0 auto;
   border-radius: 4px;
   display: block;
+  object-fit: cover;
   transition: filter 0.3s ease;
 }
 
@@ -108,13 +109,12 @@
     font-size: 1.5rem;
     margin-bottom: 40px;
   }
-
   .event-content {
     flex-direction: row;
     gap: 60px;
-    align-items: flex-start;
+    align-items: center; /* era flex-start */
   }
-
+  
   .event-flyer-link {
     flex: 0 0 25%; /* controla a largura do flyer no desktop - ajuste esse % à vontade */
     max-width: 25%;
