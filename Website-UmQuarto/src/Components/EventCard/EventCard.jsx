@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom' // 1. Import do Link
 import './EventCard.css'
 import FLYER from '../../assets/Halloween-2026.png'
 
@@ -42,15 +43,22 @@ const EventCard = () => {
             Escolha sua fantasia e vem.
           </p>
 
-          {/* botão que leva direto pra DM do Instagram, já que nossos ingressos são vendidos por lá */}
-          <a
-            href={instagramDM}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="event-cta"
-          > 
-            COMPRAR VIA DM
-          </a>
+          <div className="event-actions">
+            {/* botão de compra via DM */}
+            <a
+              href={instagramDM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="event-cta"
+            > 
+              COMPRAR VIA DM
+            </a>
+
+            {/* 2. NOVO BOTÃO: Link para a página de Eventos Passados */}
+            <Link to="/eventos-passados" className="event-secondary-btn">
+              VER EDICÕES ANTERIORES
+            </Link>
+          </div>
         </div>
       </div>
     </section>

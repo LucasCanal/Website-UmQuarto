@@ -1,0 +1,257 @@
+/* Só o que o EventCard.css não cobre: topo da página, filtros, galeria e lightbox */
+.pe-page {
+  --pe-accent: #e5321b; /* ajuste para bater com o vermelho do site */
+  --pe-line: #ffffff26;
+  --pe-muted: #b5b5b5;
+
+  /* Removida a folga excessiva do topo e garantida altura total */
+  padding-top: 2.5rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.pe-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--pe-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.pe-back:hover {
+  color: var(--pe-accent);
+}
+
+.pe-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+}
+
+.pe-filtro {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: 1px solid var(--pe-line);
+  color: var(--pe-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.pe-filtro:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.pe-filtro.is-active {
+  color: var(--pe-accent);
+  border-color: var(--pe-accent);
+}
+
+.pe-vazio {
+  color: var(--pe-muted);
+  font-size: 0.85rem;
+}
+
+/* ===== BLOCO DE CADA EVENTO ===== */
+.pe-event {
+  padding-top: 3rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--pe-line);
+  scroll-margin-top: 2rem;
+}
+
+.pe-event:first-of-type {
+  margin-top: 2.5rem;
+}
+
+.pe-flyer-vazio {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  min-width: 200px;
+  background: #0d0d0d;
+  border: 1px solid var(--pe-line);
+  color: #ffffff59;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.pe-lineup {
+  margin: 0 0 1.5rem;
+  font-size: 0.8rem;
+  color: var(--pe-muted);
+}
+
+.pe-lineup-label {
+  color: #fff;
+}
+
+/* ===== BOTÃO DO INSTAGRAM ===== */
+/* Alinhado à esquerda, sem esticar, com respiro acima */
+.pe-event .event-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pe-event .event-cta {
+  align-self: flex-start;
+  margin-top: 1.25rem;
+  width: auto;
+}
+
+/* ===== TIRA DE FILME ===== */
+.pe-film {
+  position: relative;
+  margin-top: 2.5rem;
+  padding: 22px 0;
+  background: #0a0a0a;
+  border: 1px solid var(--pe-line);
+}
+
+.pe-film::before,
+.pe-film::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, #ffffff2e 0 10px, transparent 10px 24px);
+  pointer-events: none;
+}
+.pe-film::before {
+  top: 8px;
+}
+.pe-film::after {
+  bottom: 8px;
+}
+
+.pe-film-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff40 transparent;
+}
+
+.pe-frame {
+  flex: 0 0 auto;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: zoom-in;
+  scroll-snap-align: start;
+}
+
+.pe-frame img {
+  display: block;
+  height: clamp(180px, 30vw, 300px);
+  width: auto;
+  max-width: 80vw;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.3s ease;
+}
+
+.pe-frame:hover img,
+.pe-frame:focus-visible img {
+  filter: grayscale(0);
+}
+
+.pe-film-empty {
+  margin: 0;
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #ffffff73;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+.pe-back:focus-visible,
+.pe-filtro:focus-visible,
+.pe-frame:focus-visible,
+.pe-film-scroll:focus-visible,
+.pe-lightbox button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ===== LIGHTBOX ===== */
+.pe-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1rem;
+  background: rgba(0, 0, 0, 0.94);
+  font-family: inherit;
+}
+
+.pe-lb-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border: 1px solid #ffffff26;
+}
+
+.pe-lightbox button {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #fff;
+  font: inherit;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.pe-lightbox button:hover {
+  color: var(--pe-accent);
+}
+
+.pe-lb-close {
+  top: 1rem;
+  right: 1.25rem;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.pe-lb-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 1.2rem 0.9rem;
+  font-size: 1.6rem;
+}
+.pe-lb-prev {
+  left: 0;
+}
+.pe-lb-next {
+  right: 0;
+}
+
+.pe-lb-count {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  color: var(--pe-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pe-frame img,
+  .pe-filtro {
+    transition: none;
+  }
+}

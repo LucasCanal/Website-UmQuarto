@@ -134,6 +134,138 @@
     justify-content: center;
   }
 
+  /* Container que alinha o botão principal e o secundário lado a lado */
+/* Container de ações dos eventos */
+.event-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+/* Garante alinhamento fino com o botão principal */
+.event-cta {
+  align-self: center;
+  margin-top: 0;
+}
+
+/* ===== BOTÃO SECUNDÁRIO: VER EDIÇÕES ANTERIORES ===== */
+.event-secondary-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  color: #888888; /* Tom discreto e elegante */
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.4s ease;
+}
+
+/* Ícone/seta discreta após o texto */
+.event-secondary-btn::after {
+  content: '→';
+  font-size: 1rem;
+  font-weight: 300;
+  opacity: 0.5;
+  transform: translateX(0);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Linha sutil animada abaixo do botão ao passar o mouse */
+.event-secondary-btn::before {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: #ffffff;
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Estado Hover / Focus */
+.event-secondary-btn:hover,
+.event-secondary-btn:focus {
+  color: #ffffff;
+}
+
+.event-secondary-btn:hover::before {
+  width: 100%;
+}
+
+.event-secondary-btn:hover::after {
+  opacity: 1;
+  transform: translateX(5px); /* Efeito suave da seta deslizando */
+}
+
+/* ===== AJUSTES DESKTOP ===== */
+@media (min-width: 769px) {
+  .event-actions {
+    gap: 32px;
+    margin-top: 24px;
+  }
+
+  .event-secondary-btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== AJUSTES MOBILE ===== */
+@media (max-width: 768px) {
+  .event-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .event-cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .event-secondary-btn {
+    padding: 6px 0;
+  }
+}
+
+/* Efeito Hover e Focus */
+.event-secondary-btn:hover,
+.event-secondary-btn:focus {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Efeito ao Clicar */
+.event-secondary-btn:active {
+  transform: translateY(0);
+}
+
+/* Ajuste Responsivo para Celular */
+@media (max-width: 768px) {
+  .event-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .event-secondary-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
   .event-name {
     font-size: 2.2rem;
   }

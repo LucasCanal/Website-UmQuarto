@@ -1,15 +1,24 @@
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
+
+// Componentes da página principal
 import Main from './Components/Main/Main'
 import ArtistsCard from './Components/ArtistsCard/ArtistsCard'
 import NavBar from './Components/NavBar/NavBar'
 import SobreCard from './Components/SobreCard/SobreCard'
 import MixesCard from './Components/MixesCard/MixesCard'
 import ContatoCard from './Components/ContatoCard/ContatoCard'
+import EventCard from './Components/EventCard/EventCard'
+
+// Imagens
 import cdj from './assets/cdj.jpeg'
 import cdj2 from './assets/cdj2.jpeg'
 import cdj3 from './assets/cdj3.jpeg'
 import cdj4 from './assets/cdj4.jpeg'
-import EventCard from './Components/EventCard/EventCard'
+
+// Nova Página (Caminho completo com a subpasta)
+import EventosPassadosPage from './Pages/EventosPassadosPage/EventosPassadosPage'
 
 const mixes = [
   {
@@ -38,19 +47,32 @@ const mixes = [
   },
 ];
 
+// Componente da Home
+const HomePage = () => (
+  <>
+    <NavBar />
+    <div className='App'>
+      <Main />
+      <SobreCard />
+      <EventCard />
+      <ArtistsCard />
+      <MixesCard mixes={mixes} />
+      <ContatoCard />
+    </div>
+  </>
+)
+
 function App() {
   return (
-    <>
-      <NavBar/>
-      <div className='App'>
-        <Main/>
-        <SobreCard/>
-        <EventCard/>
-        <ArtistsCard/>
-        <MixesCard mixes={mixes} />
-        <ContatoCard/>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        {/* Rota da Landing Page principal */}
+        <Route path="/" element={<HomePage />} />
+
+        {/* Rota para a nova página de Eventos Passados */}
+        <Route path="/eventos-passados" element={<EventosPassadosPage />} />
+      </Routes>
+    </Router>
   )
 }
 

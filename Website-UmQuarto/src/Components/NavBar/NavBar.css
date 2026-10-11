@@ -1,135 +1,180 @@
-/* ===== BASE MOBILE ===== */
+/* ===== BASE (MOBILE FIRST) ===== */
 nav.navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 3.5rem;
+  gap: 1rem;
+  /* Margem lateral fluida: 1.5rem no celular, até 10rem em telas grandes */
+  padding: 1.25rem clamp(1.5rem, 7vw, 10rem);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
   background: transparent;
   z-index: 10;
 }
 
-/* DESKTOP */
-@media (min-width: 1024px) {
-  nav.navbar {
-    padding: 2rem 10rem;
-  }
-}
-
-/* Logo mobile */
+/* Logo: tamanho fluido e letter-spacing em em (escala junto com a fonte) */
 .nav-logo-container h1 {
+  margin: 0;
   font-family: 'Oswald', sans-serif;
-  font-size: 2rem;
-  letter-spacing: -3.7px;
+  font-size: clamp(1.7rem, 3.2vw + 0.8rem, 3rem);
+  letter-spacing: -0.08em;
   font-weight: 700;
+  line-height: 1;
   color: #fff;
+  white-space: nowrap;
 }
 
-/* Botão menu */
+/* ===== BOTÃO HAMBÚRGUER (vira X ao abrir) ===== */
 .menu-toggle {
-  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 44px; /* área de toque confortável */
+  height: 44px;
+  margin-right: -10px; /* compensa a área de toque para alinhar à margem */
+  padding: 0;
   background: none;
   border: none;
-  color: #fff;
   cursor: pointer;
 }
 
-/* Menu mobile — base com transição */
+.menu-toggle-bar {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: #fff;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+}
+
+.menu-toggle:focus-visible,
+.navbar-links-container a:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 3px;
+}
+
+/* ===== MENU MOBILE: painel em largura total ===== */
 .navbar-links-container {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 100%;
-  right: 1rem;
-  background-color: #000;
-  padding: 0.9rem;
-  gap: 1.2rem;
-  border-radius: 8px;
+  left: 0;
+  right: 0;
+  padding: 0.5rem clamp(1.5rem, 7vw, 10rem) 1rem;
+  background-color: rgba(0, 0, 0, 0.96);
+  border-top: 1px solid #ffffff26;
+  border-bottom: 1px solid #ffffff26;
   z-index: 100;
 
-  /* Animação de entrada */
+  /* Fechado: some e sai da ordem de tabulação */
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: translateY(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
 }
 
-/* Menu mobile aberto */
 .navbar-links-container.open {
   opacity: 1;
+  visibility: visible;
   pointer-events: all;
   transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
 }
 
-/* Links mobile */
 .navbar-links-container a {
   position: relative;
+  display: block;
+  padding: 1rem 0;
   text-decoration: none;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 200;
-  padding: 0.3rem 0.7rem;
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid #ffffff14;
+  white-space: nowrap;
+  transition: padding-left 0.2s ease, color 0.2s ease;
 }
 
-/* Cantos em L DESLIGADOS no mobile */
+.navbar-links-container a:last-child {
+  border-bottom: none;
+}
+
+/* No toque/hover o item "anda" um pouco, em vez do fundo cinza */
+.navbar-links-container a:hover {
+  padding-left: 0.6rem;
+  color: #e5321b;
+}
+
+/* Cantos em L desligados no mobile */
 .navbar-links-container a::before,
 .navbar-links-container a::after {
   display: none;
 }
 
-/* Hover */
-.navbar-links-container a:hover {
-  background-color: #ffffff2d;
-  transition: 0.3s ease;
-}
-
-/* ===== TABLET (768px – 1023px) ===== */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .nav-logo-container h1 {
-    font-size: 2.5rem;
-    letter-spacing: -3.9px;
-  }
-}
-
-/* ===== DESKTOP ===== */
+/* ===== DESKTOP (1024px+) ===== */
 @media (min-width: 1024px) {
+  nav.navbar {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   .menu-toggle {
     display: none;
   }
 
   .navbar-links-container {
-    display: flex;
     position: static;
     flex-direction: row;
-    background: none;
+    align-items: center;
+    /* Espaço entre os links também fluido: nunca espreme */
+    gap: clamp(1rem, 2.4vw, 3.5rem);
     padding: 0;
+    background: none;
+    border: none;
 
-    /* Resetar animação mobile */
     opacity: 1;
+    visibility: visible;
     pointer-events: all;
     transform: none;
     transition: none;
   }
 
   .navbar-links-container a {
-    margin-right: 3.5rem;
-    font-size: 1.7rem;
+    padding: 0.3rem 0.7rem;
+    font-size: clamp(1rem, 0.9vw + 0.5rem, 1.7rem);
+    letter-spacing: 0.02em;
+    border-bottom: none;
   }
 
-  .nav-logo-container h1 {
-    font-size: 3rem;
-    letter-spacing: -4px;
+  .navbar-links-container a:hover {
+    padding-left: 0.7rem;
+    color: #fff;
+    background-color: #ffffff2d;
+    transition: background-color 0.3s ease;
   }
 
-  /* Cantos em L LIGADOS no desktop */
+  /* Cantos em L ligados no desktop */
   .navbar-links-container a::before,
   .navbar-links-container a::after {
     display: block;
-    content: "";
+    content: '';
     position: absolute;
     width: 8px;
     height: 8px;
@@ -148,5 +193,13 @@ nav.navbar {
     right: 0;
     border-bottom: none;
     border-left: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar-links-container,
+  .navbar-links-container a,
+  .menu-toggle-bar {
+    transition: none;
   }
 }
